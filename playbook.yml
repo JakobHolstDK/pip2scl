@@ -12,14 +12,14 @@
   hosts: builders
   tasks:
      - name: Build the scl
-        vars:
+       vars:
           - version: "master"
           - project:  "pip2scl-demo"
           - organisation: miracle
           - sclname: flask
           - repo_url: "git@github.com:JakobHolstDK/pip2scl-demo.git"
-        include_role:
-         name: miracle-ansible-role-pipfreeze2scl 
+       include_role:
+         name:  miracle-ansible-role-pipfreeze2scl 
   become: True
 
 
