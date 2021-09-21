@@ -1,0 +1,5 @@
+---
+roles:
+  - src: git@github.com:JakobHolstDK/miracle-ansible-role-pipfreeze2scl.git
+    scm: git
+    version: "master"
