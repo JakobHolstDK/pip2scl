@@ -13,11 +13,11 @@
   tasks:
      - name: Build the scl
        vars:
-          - version: "master"
+          - version: "1.0.0"
           - project:  "pip2scl-demo"
           - organisation: miracle
           - sclname: flask
-          - repo_url: "git@github.com:JakobHolstDK/pip2scl-demo.git"
+          - repo_url: "https://github.com/JakobHolstDK/pip2scl-demo.git"
        include_role:
          name:  miracle-ansible-role-pipfreeze2scl 
   become: True
