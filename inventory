@@ -1,8 +1,15 @@
 [builders]
 builder
 
+[targets]
+target
+
 [api]
 api1
 api2
+
+[repos]
+root@repos.pip2scl.dk
+root@tools.ostack.met.no
 
 

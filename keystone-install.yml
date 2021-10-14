@@ -10,19 +10,16 @@
   - name: "copy key to servers"
     shell: "vagrant scp ~/.ssh/scldistro scldistro"
 
-- name: Build openstack components
-  hosts: builders
+- name: install openstack components
+  hosts: api
   tasks:
-     - name: Build the scl
+     - name: install
        vars:
-          - version: "glance-stable-train"
-          - branch:  "stable/train"
-          - project:  "glance"
+          - version: "stable-train"
+          - project:  "keystone"
           - organisation: "met"
           - scl_version: "train"
           - scl_release: "1"
-          - scl_description: "A precompiled package which installed the requirements for running the service"
-          - repo_url: "https://github.com/openstack/glance.git"
        include_role:
-         name:  miracle-ansible-role-pipfreeze2scl 
+         name:  miracle-ansible-role-install-openstack-component
   become: True

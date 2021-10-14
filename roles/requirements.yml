@@ -1,5 +1,26 @@
 ---
 roles:
+  - src: git@github.com:JakobHolstDK/miracle-ansible-role-awxrpm-venv-installer.git
+    scm: git
+    version: "master"
+
+  - src: git@github.com:JakobHolstDK/miracle-ansible-role-pipfreeze2scl-awx.git
+    scm: git
+    version: "master"
+
   - src: git@github.com:JakobHolstDK/miracle-ansible-role-pipfreeze2scl.git
     scm: git
     version: "master"
+
+  - src: git@github.com:JakobHolstDK/miracle-ansible-role-build-scl-rpms.git
+    scm: git
+    version: "master"
+  
+  - src: git@github.com:JakobHolstDK/miracle-ansible-role-reposerver.git
+    scm: git
+    version: "master"
+  
+  
+
+
+

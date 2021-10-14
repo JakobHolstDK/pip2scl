@@ -11,18 +11,18 @@
     shell: "vagrant scp ~/.ssh/scldistro scldistro"
 
 - name: Build openstack components
-  hosts: builders
+  hosts: targets
   tasks:
-     - name: Build the scl
+     - name: Build the rpms
        vars:
-          - version: "glance-stable-train"
-          - branch:  "stable/train"
-          - project:  "glance"
+          - version: "1.0.0"
+          - branch:  "stable/stein"
+          - project:  "keystone"
           - organisation: "met"
-          - scl_version: "train"
+          - scl_version: "stein"
           - scl_release: "1"
           - scl_description: "A precompiled package which installed the requirements for running the service"
-          - repo_url: "https://github.com/openstack/glance.git"
+          - repo_url: "https://github.com/openstack/keystone.git"
        include_role:
-         name:  miracle-ansible-role-pipfreeze2scl 
+         name:  miracle-ansible-role-build-scl-rpms
   become: True
