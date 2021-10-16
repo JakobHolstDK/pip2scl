@@ -1,15 +1,2 @@
 [builders]
-builder
-
-[targets]
-target
-
-[api]
-api1
-api2
-
-[repos]
-root@repos.pip2scl.dk
-root@tools.ostack.met.no
-
-
+builder ansible_host=192.168.123.5 ansible_user=jho ansible_python_interpreter=/usr/libexec/platform-python ansible_ssh_common_args="-o UserKnownHostsFile=/dev/null -o GSSAPIAuthentication=no -o GSSAPIKeyExchange=no -o StrictHostKeyChecking=no"
