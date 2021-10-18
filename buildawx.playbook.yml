@@ -1,0 +1,33 @@
+---
+- name: Build openstack components
+  hosts: sclbuilders
+  tasks:
+    - name: Build the scl
+      vars:
+         - version: "awxrpm"
+         - project:  "awx"
+         - organisation: "miracle"
+         - scl_version: "19.0.4"
+         - scl_release: "1"
+         - scl_description: "A precompiled package which installed the requirements for running the service"
+         - requirementsfile: "http://repos.pip2scl.dk/awx.requirements.txt"
+         - repo_url: "https://github.com/ansible/awx.git"
+         - branch: "19.0.4"
+      include_role:
+         name:  miracle-ansible-role-pipfreeze2scl 
+    - name: Build the scl
+      vars:
+         - version: "awxrpm"
+         - project:  "awx"
+         - organisation: "miracle"
+         - scl_version: "19.0.4"
+         - scl_release: "1"
+         - scl_description: "A precompiled package which installed the requirements for running the service"
+         - requirementsfile: "http://repos.pip2scl.dk/awx.requirements.txt"
+         - repo_url: "https://github.com/ansible/awx.git"
+         - branch: "master"
+      include_role:
+        name:  miracle-ansible-role-miracle-ansible-role-awxprebuild
+
+  become: True
+
