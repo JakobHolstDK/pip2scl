@@ -20,6 +20,10 @@ roles:
     scm: git
     version: "master"
   
+  - src: git@github.com:JakobHolstDK/miracle-ansible-role-awxprebuild
+    scm: git
+    version: "master"
+  
   
 
 

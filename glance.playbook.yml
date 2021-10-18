@@ -23,6 +23,7 @@
           - scl_release: "1"
           - scl_description: "A precompiled package which installed the requirements for running the service"
           - repo_url: "https://github.com/openstack/glance.git"
+          - requirementfile: /usr/local/etc/awx.requirements.txt
        include_role:
          name:  miracle-ansible-role-pipfreeze2scl 
   become: True

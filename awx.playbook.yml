@@ -28,26 +28,19 @@
          name:  miracle-ansible-role-awxrpm-venv-installer
   become: True
 
-  #- name: Build openstack components
-  #hosts: targets
-  #tasks:
-  #   - name: Build the rpms
-  #     vars:
-  #        - version: "keystone-stable-train"
-  #        - branch:  "stable/train"
-  #        - project:  "keystone"
-  #        - organisation: "met"
-  #        - scl_version: "train"
-  #        - scl_release: "1"
-  #        - scl_description: "A precompiled package which installed the requirements for running the service"
-  #        - repo_url: "https://github.com/openstack/keystone.git"
-  #     include_role:
-  #       name:  miracle-ansible-role-build-scl-rpms
-  #become: True
+- name: Build openstack components
+  hosts: builders
+  tasks:
+     - name: Build the scl
+       vars:
+          - version: "awxrpm"
+          - project:  "awx"
+          - organisation: "met"
+          - scl_version: "19.0.4"
+          - scl_release: "1"
+          - scl_description: "A precompiled package which installed the requirements for running the service"
+          - requirementfile: /usr/local/etc/awx.requirements.txt
+       include_role:
+         name:  miracle-ansible-role-pipfreeze2scl 
+  become: True
 
-  #- name: "Destroy a temporary rhel builder"
-  #hosts: localhost
-  #connection: local
-  #tasks:
-  #- name: "vagrant kill the rhel8 builder"
-  #  shell: "vagrant destroy -f"
