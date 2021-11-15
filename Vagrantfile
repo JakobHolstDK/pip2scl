@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/rhel8"
-  config.vm.define "builder"
+  config.vm.define "sclbuilder"
   config.vm.provider "virtualbox" do |v|
     v.memory = 8192
     v.cpus = 8
@@ -17,21 +17,7 @@ end
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/rhel8"
-  config.vm.define "target"
-  config.vm.provider "virtualbox" do |v|
-    v.memory = 8192
-    v.cpus = 8
-  end
-
-  if Vagrant.has_plugin?('vagrant-registration')
-    config.registration.org = '14498519'
-    config.registration.activationkey = 'virt-lightening'
-  end
-end
-
-Vagrant.configure("2") do |config|
-  config.vm.box = "generic/rhel8"
-  config.vm.define "api1"
+  config.vm.define "awxserver"
   config.vm.provider "virtualbox" do |v|
     v.memory = 8192
     v.cpus = 8
