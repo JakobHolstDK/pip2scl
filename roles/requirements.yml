@@ -23,8 +23,19 @@ roles:
   - src: git@github.com:JakobHolstDK/miracle-ansible-role-awxprebuild
     scm: git
     version: "master"
-  
-  
+
+  - src: git@github.com:JakobHolstDK/ansible_role_init_pip.git
+    scm: git
+    version: "master"
+
+  - src: git@github.com:JakobHolstDK/ansible_role_init_rpmbuild_environment.git
+    scm: git
+    version: "master"
+
+  - src: git@github.com:JakobHolstDK/vault-by-a-miracle.git
+    scm: git
+    version: "master"
+
 
 
 

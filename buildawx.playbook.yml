@@ -1,36 +1,34 @@
 ---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 - name: "Create a temporary rhel builder"
   hosts: localhost
   connection: local
   tasks:
   
-  - name: "Clean up rhel subscriptions"
-    shell: "vagrant up"
   - name: "vagrant start a rhel8 sclbuilder"
     shell: "vagrant up"
-  - name: "save old ssh config file"
-    shell: "vagrant ssh-config >  builder.conf"
-  - name: "copy key to servers"
-    shell: "vagrant scp ~/.ssh/scldistro scldistro"
 
 
 
+- name: Setup python
+  hosts: sclbuilder
+  roles:
+  - role: ansible_role_init_pip
+  - role: ansible_role_init_rpmbuild_environment
+    rpmbuild_build_dir: "/root/rpmbuild"
+  become: true
 
-
+- name: Build openstack components
+  hosts: all
+  tasks:
+    - name: add repo
+      yum_repository:
+        name: awx
+        description: "awx-rpm "
+        baseurl: http://repos.pip2scl.dk/RPMS
+        gpgcheck: no
+        enabled: yes
+      become: true
 
 - name: Build openstack components
   hosts: sclbuilder
